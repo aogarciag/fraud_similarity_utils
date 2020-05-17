@@ -49,3 +49,12 @@ def format_cp(x):
 def format_email(x):
     return text_to_id(x.split("@")[0])
 
+def get_hour_interval(mx_hour):
+    if mx_hour<6:
+        return 1
+    elif mx_hour<12:
+        return 2
+    elif mx_hour<18:
+        return 3
+    else:
+        return 4
