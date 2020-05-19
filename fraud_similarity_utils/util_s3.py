@@ -9,11 +9,11 @@ class S3Exception(Exception):
         super().__init__(message)
 
 class S3:
-    AWS_KEY = os.environ.get("AWS_KEY", None)
-    AWS_SECRET = os.environ.get("AWS_SECRET", None)
-    SSE_KMS_KEY_ID = os.environ.get("AWS_SSE_KMS_KEY_ID", None)
-    BUCKET = os.environ.get("AWS_BUCKET", None)
-    REGION = os.environ.get("AWS_REGION", None)
+    AWS_KEY = os.environ.get("ENV_AWS_KEY", None)
+    AWS_SECRET = os.environ.get("ENV_AWS_SECRET", None)
+    SSE_KMS_KEY_ID = os.environ.get("ENV_AWS_SSE_KMS_KEY_ID", None)
+    BUCKET = os.environ.get("ENV_AWS_BUCKET", None)
+    REGION = os.environ.get("ENV_AWS_REGION", None)
 
     kms = boto3.Session(aws_access_key_id=AWS_KEY, aws_secret_access_key=AWS_SECRET, region_name=REGION).client('kms')
     s3 = boto3.Session(aws_access_key_id=AWS_KEY, aws_secret_access_key=AWS_SECRET, region_name=REGION).client('s3')
